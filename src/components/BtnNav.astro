@@ -1,0 +1,9 @@
+---
+const { iconClass, texto } = Astro.props;
+---
+
+<a href="#" class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-200
+    cursor-pointer bg-transparent hover:bg-[#00932b] group">
+    <i class={`${iconClass} text-[#00932b] group-hover:text-[#94dfb2]`}></i>
+    <span class="text-[15px] ml-4 text-black font-bold group-hover:text-white">{texto}</span>
+</a>
