@@ -1,0 +1,81 @@
+---
+const { img, Ncomida, precio } = Astro.props;
+const id = Math.random().toString(36).substr(2, 9);
+---
+
+
+
+<article
+  class="w-auto h-auto flex flex-col items-center justify-between p-3 rounded-lg bg-white shadow-lg"
+>
+  <img
+    class="object-cover w-full h-44 bg-contain rounded-lg"
+    src={`${img}`}
+    alt="Imagen de la comida"
+    height="50px"
+  />
+
+  <section class="w-full flex flex-col items-start mt-3">
+    <h5 class="font-bold text-md">{Ncomida}</h5>
+    <p class="text-[#00932b] font-medium">{precio}</p>
+  </section>
+
+  <section class="w-full h-auto flex justify-between mt-3">
+    <div class="flex items-center space-x-2">
+      <button
+        onclick={`decrement('${id}')`}
+        class="border-2 border-[#94dfb2] hover:bg-[#94dfb2] text-black font-bold py-1 px-3 rounded-full focus:outline-none transition-all"
+      >
+        -
+      </button>
+
+      <span id={`counter-${id}`} class="text-lg font-semibold">0</span>
+
+      <button
+        onclick={`increment('${id}')`}
+        class="border-2 border-[#94dfb2] hover:bg-[#94dfb2] text-black font-bold py-1 px-3 rounded-full focus:outline-none transition-all"
+      >
+        +
+      </button>
+    </div>
+
+    <button class="w-auto h-auto transition-all hover:scale-110">
+      <img src="carritoSupermercado.svg" alt="Boton agregar al carrito" />
+    </button>
+  </section>
+</article>
+
+<script type="text/javascript">
+  let counters = {};
+
+  function updateCounter(id) {
+    const counterElement = document.getElementById(`counter-${id}`);
+    if (counterElement) {
+      counterElement.innerText = `${counters[id]}`;
+    }
+  }
+
+  function increment(id) {
+    if (!counters[id]) counters[id] = 0;
+    counters[id]++;
+    updateCounter(id);
+  }
+
+  function decrement(id) {
+    if (!counters[id]) counters[id] = 0;
+    if (counters[id] > 0) {
+      counters[id]--;
+    }
+    updateCounter(id);
+  }
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const elements = document.querySelectorAll('[id^="counter-"]');
+    elements.forEach((element) => {
+      const id = element.id.split("-")[1];
+      counters[id] = 0;
+      updateCounter(id);
+    });
+  });
+</script>
+

@@ -1,0 +1,13 @@
+---
+const {img,tittle,content} = Astro.props;
+
+---
+
+<article class="w-auto h-36 flex flex-col items-start justify-between p-3
+    bg-white shadow-xl rounded-lg transition-all hover:scale-110 hover:cursor-pointer">
+    <img src={`${img}`} alt="" width="40px" height="40px">
+    <div>
+        <h2 class="font-bold text-lg">{tittle}</h2>
+        <h6 class="font-light text-sm">{content}</h6>
+    </div>
+</article>

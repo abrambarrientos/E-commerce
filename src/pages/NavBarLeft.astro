@@ -1,0 +1,62 @@
+---
+import BtnNav from "../components/BtnNav.astro"
+---
+
+
+<span class="absolute text-white text-4xl top-5 left-4 cursor-pointer" onclick="Open()">
+    <i class="ri-menu-line ri-sm bg-gray-900 rounded-md "></i>
+</span>
+
+<aside class="SLIDEBAR fixed top-0 bottom-0 lg:left-0 left-[-300px] p-2 w-[300px] overflow-y-auto
+text-center bg-white shadow-xl z-10 overflow-hidden">
+    
+    <section class="text-xl">
+        <div class="mt-1 flex items-center justify-center ">
+            <!-- <i class="ri-links-line px-2 py-2 rounded-md text-[#00932b]"></i>-->
+            <!-- <h1 class="font-bold text-black text-[15px] ml-3">Recetas Mexicanas</h1>-->
+            <img src="logo.webp" alt="Logo" width="160px" height="160px" onclick="Open()">
+        </div>
+        <hr class="my-2 text-gray-900">
+    </section>
+
+    <BtnNav iconClass="ri-user-line" texto="Iniciar Sesion"/>
+
+    <hr class="my-2 text-gray-900">
+
+    <BtnNav iconClass="ri-home-line" texto="Menu"/>
+    <BtnNav iconClass="ri-table-line" texto="Tabla de servicios"/>
+    <BtnNav iconClass="ri-reserved-line" texto="Reservaciones"/>
+    <BtnNav iconClass="ri-truck-line" texto="Entragas a domicilio"/>
+
+    <a href="#" class="p-2.5 mt-3 flex  items-center rounded-md px-4 duration-200
+    cursor-pointer bg-transparent hover:bg-[#00932b] group " onclick="dropdown()">
+        <i class="ri-settings-line text-[#00932b] group-hover:text-[#94dfb2]"></i>
+        <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 font-bold group-hover:text-white">Ajustes</span>
+            <span class="rotate-180" id="Arrow">
+            <i class="ri-arrow-down-s-line"></i>
+            </span>
+        </div>
+    </a>
+    <div class="text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="SubMenu">
+        <h1 class="cursor-pointer p-2 duration-200 hover:bg-[#94dfb2] rounded-lg mt-1 font-medium">Ajustes generales</h1>
+        <h1 class="cursor-pointer p-2 duration-200 hover:bg-[#94dfb2] rounded-lg mt-1 font-medium">Ajustes generales</h1>
+        <h1 class="cursor-pointer p-2 duration-200 hover:bg-[#94dfb2] rounded-lg mt-1 font-medium">Ajustes generales</h1>
+    </div>
+
+    <hr class="my-2 text-gray-900">
+
+    <BtnNav iconClass="ri-logout-box-line" texto="Cerrar sesion"/>
+    
+</aside>
+
+<script type="text/javascript">
+    function dropdown(){
+        document.querySelector('#SubMenu').classList.toggle('hidden');
+        document.querySelector('#Arrow').classList.toggle('rotate-0');
+    }
+    dropdown()
+    function Open(){
+        document.querySelector('.SLIDEBAR').classList.toggle('left-[-300px]');
+    }
+</script>

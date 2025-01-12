@@ -1,0 +1,68 @@
+---
+import TComida from "../components/TipoComida.astro";
+import CardComida from "../components/CardComida.astro";
+import Footer from "../pages/Footer.astro";
+import Platillos from "../components/Platillos.astro";
+---
+
+<main class="w-full h-auto flex flex-col items-center">
+  <section class="BUSQUEDA w-full h-12 flex justify-center mt-7 relative">
+    <div class="flex items-center relative w-2/4">
+      <input
+        class="w-full h-12 rounded-md p-1 pl-10 shadow-md"
+        type="search"
+        placeholder="Busca tu producto aqui"
+      />
+      <span class="absolute inset-y-5 flex items-center pl-3">
+        <i class="ri-search-line"></i>
+      </span>
+    </div>
+  </section>
+
+  <section
+    class="CONTENIDO w-[51%] h-auto grid grid-cols-5 gap-4 justify-center mt-7 p-3"
+  >
+    <TComida img="todo.svg" tittle="Todo" content="255 items" />
+    <TComida img="desayuno.svg" tittle="Desayunos" content="30 items" />
+    <TComida img="sopa.svg" tittle=" Sopas" content="6 items" />
+    <TComida img="pasta.svg" tittle="Pasta" content="14 items" />
+    <TComida img="ComidaRapida.svg" tittle="Comida rapida" content="30 items" />
+  </section>
+
+  <section
+    class="CONTENIDO w-[51%] h-auto grid grid-cols-3 gap-4 justify-center mt-7 p-3"
+  >
+    <CardComida
+      img="/img/pankeiks.jpg"
+      Ncomida="Pancakes con miel y frutas"
+      precio="$7.50"
+    />
+    <CardComida
+      img="/img/omellett.jpg"
+      Ncomida="Omellette de espinacas y queso"
+      precio="$6.80"
+    />
+    <CardComida
+      img="/img/SopaTortilla.jpg"
+      Ncomida="Sopa de Tortilla"
+      precio="$8.25"
+    />
+    <CardComida
+      img="/img/lasaña.jpg"
+      Ncomida="Lasaña de Carne con Queso"
+      precio="$14.00"
+    />
+    <CardComida
+      img="/img/hotdog.jpg"
+      Ncomida="Hot Dog Clásico "
+      precio="$5.90"
+    />
+    <CardComida
+      img="/img/nuggets.jpg"
+      Ncomida="Combo de Nuggets con Papas Fritas"
+      precio="$9.80"
+    />
+  </section>
+  
+  <Footer />
+</main>

@@ -1,9 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBarRight from './NavBarRight.astro';
+import Main from './main.astro'
+import NavBarLeft from './NavBarLeft.astro';
+import Platillos from '../components/Platillos.astro';
 ---
 
 <Layout title="Recetario mexicano">
+	<NavBarLeft />
+	<Main />
+	<Platillos />
 	<NavBarRight />
-	<h1 class="ml-[300px]">Ola mundo</h1>
 </Layout>
